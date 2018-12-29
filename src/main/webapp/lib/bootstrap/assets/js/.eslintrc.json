@@ -1,0 +1,23 @@
+{
+  "env": {
+    "es6": false,
+    "jquery": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 5,
+    "sourceType": "script"
+  },
+  "extends": "../../.eslintrc.json",
+  "rules": {
+    "no-magic-numbers": "off",
+    "vars-on-top": "off",
+
+    "spaced-comment": "off",
+
+    "no-var": "off",
+    "object-shorthand": "off",
+    "prefer-arrow-callback": "off",
+    "prefer-template": "off",
+    "prefer-rest-params": "off"
+  }
+}
