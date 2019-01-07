@@ -14,7 +14,8 @@
     <!-- Bootstrap core CSS -->
     <link href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/buttons.dataTables.min.css">
     <!-- Custom styles for this template -->
     <!-- <link href="${pageContext.request.contextPath}/lib/bootstrap/cover.css" rel="stylesheet"> -->
     
@@ -29,11 +30,20 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="ads.jsp">Advertisement</a>
+      </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="app.jsp">Applications</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="rb.jsp">Resume Bank</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="reports.jsp">Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="notif.jsp">Notifier</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,20 +64,13 @@
   </div>
 </nav>
 
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Advertisement')" id="defaultOpen">Advertisement</button>
-  <button class="tablinks" onclick="openCity(event, 'Applications')">Applications</button>
-  <button class="tablinks" onclick="openCity(event, 'Resume Bank')">Resume Bank</button>
-  <button class="tablinks" onclick="openCity(event, 'Reports')">Reports</button>
-  <button class="tablinks" onclick="openCity(event, 'Notifier')">Notifier</button>
+<div class="container">
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	  Add Posting
+	</button>
 </div>
-
-<!-- Tab content -->
-<div id="Advertisement" class="tabcontent">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Add Posting
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,7 +86,21 @@
         <form action="" method="POST">
 			<div class="input-group mb-3">
 			  <div class="input-group-prepend">
-			    <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+			    <span class="input-group-text" id="inputGroup-sizing-default">Level/Role</span>
+			  </div>
+			  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			
+			<div class="input-group mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text" id="inputGroup-sizing-default">Job Description</span>
+			  </div>
+			  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			
+			<div class="input-group mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text" id="inputGroup-sizing-default">Qualification</span>
 			  </div>
 			  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 			</div>
@@ -94,7 +111,6 @@
 			  </div>
 			  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 			</div>
-			
         </form>
         <!-- end of form -->
       </div>
@@ -104,60 +120,32 @@
       </div>
     </div>
   </div>
-</div>
-  <h3>Advertisement</h3>
-  <p>ads is every where</p>
-</div>
-
-<div id="Applications" class="tabcontent">
-  <h3>Applications</h3>
-  <p>applications or applicants ?really</p> 
-</div>
-
-<div id="Resume Bank" class="tabcontent">
-  <h3>Resume Bank</h3>
-  <p>What kind of bank is this ? Resume Bank</p>
-</div>
-
-<div id="Reports" class="tabcontent">
-    <h3>Reports</h3>
-    <p>Reports shit this contains fucking graphs</p>
   </div>
-
-  <div id="Notifier" class="tabcontent">
-      <h3>Notifier</h3>
-      <p>Notifier shit</p>
-    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="${pageContext.request.contextPath}/lib/bootstrap/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  
+	<script src="${pageContext.request.contextPath}/lib/jquery-3.3.1.js"></script>
     <script src="${pageContext.request.contextPath}/lib/bootstrap/assets/js/vendor/popper.min.js"></script>
     <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-    function openCity(evt, tabName) {
-    	  // Declare all variables
-    	  var i, tabcontent, tablinks;
+	<script src="${pageContext.request.contextPath}/lib/jquery.dataTables.min.js"></script>
+	<script src="${pageContext.request.contextPath}/lib/dataTables.buttons.min.js"></script>
+	<script src="${pageContext.request.contextPath}/lib/buttons.print.min.js"></script>
+	<script src="${pageContext.request.contextPath}/lib/buttons.flash.min.js"></script>
+	<script src="${pageContext.request.contextPath}/lib/buttons.html5.min.js"></script>
+	<script src="${pageContext.request.contextPath}/lib/jszip.min.js"></script>
+	<script src="${pageContext.request.contextPath}/lib/pdfmake.min.js"></script>
+	<script src="${pageContext.request.contextPath}/lib/vfs_fonts.js"></script>
+	<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "pageLength": 20,
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        });
+    });
+</script>
 
-    	  // Get all elements with class="tabcontent" and hide them
-    	  tabcontent = document.getElementsByClassName("tabcontent");
-    	  for (i = 0; i < tabcontent.length; i++) {
-    	    tabcontent[i].style.display = "none";
-    	  }
-
-    	  // Get all elements with class="tablinks" and remove the class "active"
-    	  tablinks = document.getElementsByClassName("tablinks");
-    	  for (i = 0; i < tablinks.length; i++) {
-    	    tablinks[i].className = tablinks[i].className.replace(" active", "");
-    	  }
-
-    	  // Show the current tab, and add an "active" class to the button that opened the tab
-    	  document.getElementById(tabName).style.display = "block";
-    	  evt.currentTarget.className += " active";
-    	}
-      document.getElementById("defaultOpen").click();
-    </script>
   </body>
 </html>
